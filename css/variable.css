@@ -1,0 +1,13 @@
+:root{
+    --color-primary: hsl(316, 30%, 36%);
+    --color-secundary: hsl(257, 8%, 18%);
+    
+}
+@font-face {
+    font-family: "cursive";
+    src: url(../storage/fonts/static/Bitter-Italic.ttf);
+}
+@font-face {
+    font-family: "light";
+    src: url(../storage/fonts/static/Bitter-Black.ttf);
+}
