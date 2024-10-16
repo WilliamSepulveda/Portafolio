@@ -9,6 +9,8 @@ body.night-mode {
   --color-secundary: #9BF272; 
   --text-color: #000000; 
   background-color: var(--color-primary);
+  user-select: none;
+
 }
 
 /* Modo Noche */
@@ -19,6 +21,8 @@ body {
   --text-color: #ffffff; 
   --highlight-color: #8BC34A;
   background-color: var(--color-primary);
+  user-select: none;
+
 }
 
 
@@ -271,56 +275,39 @@ input:checked + .slider:before {
     top: 25%;
     transform: translateX(-50%); 
     z-index: 1;
+  }
+  
+.button {
+  width: 40px;
+  height: 60px;
+  margin-left: 29vw;
+  margin-top: 3vw;
+  background-color: #777;
+  border-radius: 90% 90% 40% 40%; 
+  position: relative;
+  transition: box-shadow 0.1s ease-in-out, background-color 0.1s ease-in-out;
 }
 
-#img2 {
-    width: 20vw;
-    position: absolute;
-    left: 45%; 
-    top: 1%;
-    transform: translateX(-50%); 
+#img{ 
+    width: 160px;
+    height: 14vw;
+    position: relative;
+    bottom: 75px;
+    right: 60px;  
     z-index: 1;
 }
-.button {
-  position: relative;
-  padding: 0;
-  width: 100px;
-  height: 105px;
-  left: 70%;
-  background: transparent;
-  font-size: 17px;
-  border: 1px solid #34333300;
-  border-radius: 8px;
-  box-shadow: inset 0 0 10px #0404041c;
-  transition: all 0.3s ease;
-}
-
-body.night-mode .button {
-  background-color: #d0caca; 
-  color: #000000; 
-}
-.light-on {
-  filter: brightness(2); 
-}
-
-.light-off {
-  filter: brightness(0.5); 
-}
-.light-active::before {
-  content: "";
+.button::before {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 135px;
-  height: 65px;
+  top: 30%;
+  left: 16%;
+  width: 40px;
+  height: 50px;
   background: radial-gradient(circle at 100% -50%, #d0caca69 45%, #d4d4d44f 60%, #d0caca36 2%);
   background-size: 200%;
   background-repeat: no-repeat;
-  filter: opacity(.3) blur(.3em);
-  animation: light 1s forwards; /* Cambiar la duración si es necesario */
+  border-radius: 90% 90% 40% 40%; 
+  filter: opacity(3);
 }
-
 
 .button::after {
   content: "";
@@ -332,29 +319,73 @@ body.night-mode .button {
   width: 100%;
   background-color: #d0caca;
   filter: blur(2em);
-  opacity: 0;
+  opacity: 1;
   pointer-events: none;
 }
+.fil0 {
+  fill: #935E28
+}
 
-.button:hover::after {
+.button:hover {
+  filter: blur(.05em);
+  animation: lightBox 1s ease-in-out forwards;
+}
+
+.button.animate::after {
   animation: light 1s ease-in-out forwards;
 }
+
 
 @keyframes lightBox {
   0% {
     border: 1px solid #d0caca;
-    box-shadow: 0 0 3px 0px #d0caca8a, inset 0 0 5px #d0caca8a;
+    box-shadow: 0 0 5px 0px #d0caca8a, inset 0 0 10px #d0caca8a;
+  }
+
+  20% {
+    border: 1px solid #d0caca1c;
+    box-shadow: none;
+  }
+
+  30% {
+    border: 1px solid #d0caca;
+    box-shadow: 0 0 10px 0px #d0caca8a, inset 0 0 15px #d0caca8a;
+  }
+
+  38% {
+    border: 1px solid #d0caca1c;
+    box-shadow: none;
+  }
+
+  45% {
+    border: 1px solid #d0caca;
+    box-shadow: 0 0 15px 0px #d0caca8a, inset 0 0 20px #d0caca8a;
+  }
+
+  50% {
+    border: 1px solid #d0caca1c;
+    box-shadow: none;
+  }
+
+  53% {
+    border: 1px solid #d0caca;
+    box-shadow: 0 0 15px 0px #d0caca8a, inset 0 0 25px #d0caca8a;
+  }
+
+  65% {
+    border: 1px solid #d0caca1c;
+    box-shadow: none;
   }
 
   100% {
     border: 1px solid #d0caca;
-    box-shadow: 0 0 15px 0px #d0caca8a, inset 0 0 15px #d0caca8a;
+    box-shadow: 0 0 15px 0px #d0caca8a, inset 0 0 25px #d0caca8a;
   }
 }
 
 @keyframes light {
   0% {
-    opacity: .5;
+    opacity: .7;
   }
 
   20% {
@@ -362,7 +393,7 @@ body.night-mode .button {
   }
 
   30% {
-    opacity: .5;
+    opacity: .7;
   }
 
   38% {
@@ -370,7 +401,7 @@ body.night-mode .button {
   }
 
   45% {
-    opacity: .5;
+    opacity: .7;
   }
 
   50% {
@@ -378,7 +409,7 @@ body.night-mode .button {
   }
 
   53% {
-    opacity: .5;
+    opacity: .7;
   }
 
   65% {
@@ -386,14 +417,14 @@ body.night-mode .button {
   }
 
   100% {
-    opacity: .5;
+    opacity: .10;
   }
 }
 
 @keyframes lightText {
   0% {
     color: #d0caca;
-    text-shadow: 0 0 3px #d0caca8a;
+    text-shadow: 0 0 5px #d0caca8a;
   }
 
   20% {
@@ -403,7 +434,7 @@ body.night-mode .button {
 
   30% {
     color: #d0caca;
-    text-shadow: 0 0 6px #d0caca8a;
+    text-shadow: 0 0 10px #d0caca8a;
   }
 
   38% {
@@ -413,7 +444,7 @@ body.night-mode .button {
 
   45% {
     color: #d0caca;
-    text-shadow: 0 0 8px #d0caca8a;
+    text-shadow: 0 0 15px #d0caca8a;
   }
 
   50% {
@@ -423,7 +454,7 @@ body.night-mode .button {
 
   53% {
     color: #d0caca;
-    text-shadow: 0 0 10px #d0caca8a;
+    text-shadow: 0 0 15px #d0caca8a;
   }
 
   65% {
@@ -433,51 +464,43 @@ body.night-mode .button {
 
   100% {
     color: #d0caca;
-    text-shadow: 0 0 12px #d0caca8a;
+    text-shadow: 0 0 15px #d0caca8a;
   }
 }
-
-#img3 {
-    width: 12vw;
-    position: absolute;
-    left: 10%; 
-    top: 28%;
-    transform: translateX(-50%); 
-    z-index: 1;
-}
-.contendorh1{
-    grid-row: 1;
-    grid-column: 2;
-    display: inline-block;
-    margin-left: 1vw;
-}
-.title {
-  font-family: "cursive", sans-serif;
-  font-size: 2vw;
-  color: var(--text-color); 
-  margin-top: 8vw;    
-  margin-left: 180px;
-}
-
-.contendorh1 h2 {
-  font-size: 3.5rem;
-  line-height: 1.2;
-  color: var(--text-color); 
-  margin-top: 2vw;
-  font-family: "light";
-  margin-left: 180px;
-}
-
-.highlight {
-  color: var(--highlight-color); 
-  font-weight: bold;
-  font-family: "light";
-}
-
-#text{
-    font-family: "medium", sans-serif;
-    text-align: center;
-    color: #000000;
-    font-size: 1.6vw;
-    padding: 1vw;
-}
+  
+  .contendorh1{
+      grid-row: 1;
+      grid-column: 2;
+      display: inline-block;
+      margin-left: 1vw;
+  }
+  .title {
+    font-family: "cursive", sans-serif;
+    font-size: 2vw;
+    color: var(--text-color); 
+    margin-top: 8vw;    
+    margin-left: 180px;
+  }
+  
+  .contendorh1 h2 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    color: var(--text-color); 
+    margin-top: 2vw;
+    font-family: "light";
+    margin-left: 180px;
+  }
+  
+  .highlight {
+    color: var(--highlight-color); 
+    font-weight: bold;
+    font-family: "light";
+  }
+  
+  #text{
+      font-family: "medium", sans-serif;
+      text-align: center;
+      color: #000000;
+      font-size: 1.6vw;
+      padding: 1vw;
+  }
